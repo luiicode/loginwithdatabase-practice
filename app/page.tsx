@@ -1,5 +1,6 @@
 import {Card, CardContent, CardFooter, CardHeader} from "@/components/ui/card";
 import {Button} from "@/components/ui/button";
+import Link from 'next/link';
 
 export default function Home() {
     return (
@@ -42,8 +43,12 @@ export default function Home() {
                     </Button>
                     <div className={'text-center text-sm'}>
                         <span className={'text-white'}>¿No tienes cuenta? </span>
-                        <a href="#"
-                           className={'text-blue-700 hover:text-blue-300 font-medium transition-colors duration-200'}>Registrarte</a>
+                        <Link
+                            href="/registro"
+                            className={'text-blue-700 hover:text-blue-300 font-medium transition-colors duration-200'}
+                        >
+                            Registrarte
+                        </Link>
                     </div>
                 </CardFooter>
             </Card>
