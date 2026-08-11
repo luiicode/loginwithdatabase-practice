@@ -1,3 +1,9 @@
+'use client';
+
+import {useRouter} from "next/navigation";
+import {authClient} from "@/lib/auth-client";
+import {Button} from "@/components/ui/button";
+
 const products = [
     {
         name: "Laptop Pro",
@@ -17,6 +23,14 @@ const products = [
 ]
 
 export default function WebPage() {
+
+    const router = useRouter();
+
+    const handleLogout = async () => {
+        await authClient.signOut();
+        router.push("/");
+    };
+
     return (
         <main className="min-h-screen bg-slate-950 text-slate-100">
             <section className="mx-auto flex min-h-screen max-w-6xl flex-col justify-center px-6 py-16">
@@ -39,7 +53,7 @@ export default function WebPage() {
                             key={product.name}
                             className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg shadow-cyan-950/20 backdrop-blur"
                         >
-                            <div className="mb-4 h-12 w-12 rounded-xl bg-cyan-400/15" />
+                            <div className="mb-4 h-12 w-12 rounded-xl bg-cyan-400/15"/>
                             <h2 className="text-xl font-semibold text-white">{product.name}</h2>
                             <p className="mt-3 text-sm leading-6 text-slate-300">
                                 {product.description}
@@ -56,7 +70,15 @@ export default function WebPage() {
                         limpia y moderna.
                     </p>
                 </div>
+
+                <Button
+                    onClick={handleLogout}
+                    className="bg-slate-800 hover:bg-slate-700 text-white"
+                >
+                    Cerrar sesión
+                </Button>
+
             </section>
         </main>
     )
-}
+};
