@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
     title: "Login with Auth Credentials Provider",
-    description: "Login with Auth Credentials Provider and Bcrypt hashing",
+    description: "Login with Auth Credentials Provider (Better Auth default hashing)",
 };
 
 export default function RootLayout({children}: LayoutProps<"/">) {
