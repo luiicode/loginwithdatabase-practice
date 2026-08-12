@@ -14,4 +14,14 @@ export const auth = betterAuth({
         enabled: true,
         autoSignIn: false,
     },
+    user: {
+        additionalFields: {
+            role: {
+                type: "string",
+                required: false,
+                defaultValue: "user",
+                input: false, // el usuario NO puede setear su propio rol desde el form de registro
+            },
+        },
+    },
 })
